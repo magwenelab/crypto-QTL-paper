@@ -1,0 +1,11 @@
+## Don't add large TIFF figure files ## 
+*.tiff
+
+## Ignore any notebook that is just me testing
+*_test.ipynb
+
+## Ignore any notebok that is an old version
+*_old.ipynb
+
+## Ignore this large file
+*Tecan_qtlruns_Jan162019_curated_baselined_median51_QTL_x_time.csv.gz
