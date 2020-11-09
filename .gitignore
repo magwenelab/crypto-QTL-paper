@@ -12,3 +12,7 @@
 
 ## Remove checkpoints
 .ipynb_checkpoints
+
+## Don't add permutation null distributions
+*_null.csv
+*_null.csv.gz
