@@ -18,4 +18,4 @@
 *_null.csv.gz
 
 ## Ignore the gene files
-./DATA/GENOTYPE/GENES/*/*.csv.gz
+./DATA/GENOTYPE/GENES/*/*.csv*
