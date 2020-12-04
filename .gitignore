@@ -16,3 +16,6 @@
 ## Don't add permutation null distributions
 *_null.csv
 *_null.csv.gz
+
+## Ignore the gene files
+./DATA/GENOTYPE/GENES/*/*.csv.gz
