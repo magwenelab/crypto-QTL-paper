@@ -3,33 +3,33 @@ Scripts and analysis of C. deneoformans cross between XL280 X 431, as described 
 
 # Software used in this  study
 
-* Python (anaconda) v 3.7.3
+**Python (anaconda) v 3.7.3**
 - Used for analysis and visulization
 
-* BWA
+**BWA**
 - Used to align FASTQ file to an XL280 reference genome
 
-* Samtools
+**Samtools**
 - Used to generate and filter SAM and BAM files
 
-* Bamaddrg
+**Bamaddrg**
 - Used to add read group information to BAM files
 
-* Freebayes hapotype caller
+**Freebayes hapotype caller**
 - Used to detect genetic variants segregating in the mapping population
 
-* BLAT 
+**BLAT** 
 - The blast like alignment tool
 
 # Description of scripts 
 
 ## Aligning paired reads, make sam and bam files
 
-**Generate-samtobam-freebayes-scripts.ipynb
+**Generate-samtobam-freebayes-scripts.ipynb**
 - Generates bash commands for aligning FASTQ files.
 - See data availablity for SRA numbers to raw FASTQ files.
-- Input: paired FASTQ files
-- Output: Bash commands for alignment and SAM to BAM generation
+Input: paired FASTQ files
+Output: Bash commands for alignment and SAM to BAM generation
     
 * Align-FASTQ-to-sam.sh
 - List of BWA commands used to align pair-read data.
