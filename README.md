@@ -1,10 +1,10 @@
 # crypto-QTL-paper
-Scripts and analysis of _C. deneoformans cross_ between XL280 X 431, as described in Roth et al. (2021).
+Scripts and analysis of _C. deneoformans_ cross between XL280 X 431, as described in Roth et al. (2021).
 
-# Software used in this  study
+## Software used in this  study
 
 **Python (anaconda) v 3.7.3**
-- Used for analysis and visulization
+- Used for analysis and visualization
 
 **BWA**
 - Used to align FASTQ file to an XL280 reference genome
@@ -13,19 +13,21 @@ Scripts and analysis of _C. deneoformans cross_ between XL280 X 431, as describe
 - Used to generate and filter SAM and BAM files
 
 **Bamaddrg**
-- Used to add read group information to BAM**Freebayes hapotype caller**
+- Used to add read group information to BAM
+
+**Freebayes haplotype caller**
 - Used to detect genetic variants segregating in the mapping population
 
 **BLAT**
 - The blast like alignment tool
 
-# Description of scripts 
+## Description of scripts 
 
-## Aligning paired reads, make SAM and BAM files
+### Aligning paired reads, make SAM and BAM files
 
 **Generate-samtobam-freebayes-scripts.ipynb****
 - Generates bash commands for aligning FASTQ files.
-- See data availablity for SRA numbers to raw FASTQ files.
+- See data availability statement for SRA numbers to raw FASTQ files.
 
 Input: paired FASTQ files
 
@@ -59,22 +61,22 @@ Input: BAM files with read group inforomation added
 
 Output: Modified BAM files and BAI index file (per BAM)
 
-### Freebayes commands for variant calling
+#### Freebayes commands for variant calling
 
 **Run-freebayes1.sh**
 **Run-freebayes2.sh**
 **Run-freebayes3.sh**
 - List of commands used to call variants using the Freebayes Haplotype Caller.
-- Commands are in three batches with each seperated across chromosomes.
+- Commands are in three batches with each separated across chromosomes.
 
-Input: Reference genome (xl280genome.fasta), list of sorted bam files with read groups
+Input: Reference genome (xl280genome.fasta), list of sorted BAM files with read groups
 
 Output: a VCF file per chromosome (14).
 
-## Parse and filter vcfs, non-synonmous variant detection
+### Parse and filter VCFs, non-synonymous variant detection
 
-**Make chormosome map.ipynb**
-- Generates dataframe with genome length and cumulative lengths of chromosomes
+**Make chromosome map.ipynb**
+- Generates a dataframe (csv) with genomeic length and cumulative lengths of chromosomes
 
 Input: xl280genome.fasta, the XL280 reference genome
 
@@ -88,26 +90,26 @@ Input: VCF per chromosome
 Output: Two dataframes per chromosome with genothype and read depth information
 
 **Aggregate and collect dataframes.ipynb**
-- Combines the dataframes genreated above into two datasets
+- Combines the dataframes generated above into two data sets
 
-Input: Genetype and allelic depth datarames per chromosome
+Input: Genotype and allelic depth dataframes per chromosome
 
-Output: Genotype and Allelic read depth datframes combined across chromosomes with the names CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
+Output: Genotype and Allelic read depth dataframes (csv) combined across chromosomes with the names CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
 
 **Filter genetic variants.ipynb**
 - Filters genetic variants based on depth, allele frequency, and callrate.
 
 Inputs: CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
 
-Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
+Output: Dataframe of filtered variants named, CDx-ill-SNP-INDEL-df-104.csv
 
 **SNPeffect.ipynb**
 - Predicts the effects of variants on annotated genes
 
 **Gene_analysis.ipynb**
-- Analysis of non-synonmous changes within QTL
+- Analysis of non-synonymous changes within QTL
 
-## Phenotype data processing and analysis
+### Phenotype data processing and analysis
 
 **Growth curve data curation.ipynb**
 - Curates growth curve data generated on TECAN plate readers
@@ -119,7 +121,7 @@ Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
 - Filters growth profiles via a recursive median filter
 
 **Baselining XL280 ssk1 knockouts.ipynb**
-- Baselines growth proflies of ssk1 knokcouts in the XL280 strain background.
+- Baselines growth profiles of ssk1 knockouts in the XL280 strain background.
 
 **H2O2_epistasis_discrete.ipynb**
 - Information gain analysis of hydrogen peroxide growth phenotypes
@@ -127,30 +129,30 @@ Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
 **Fine_mapping_fludioxonil_analysis.ipynb**
 - Analysis of fludioxonil phenotypes in the additional fine-mapped progeny
 
-## Scripts that make the ten main figures in Roth et al.
+### Scripts that make the ten main figures in Roth et al.
 
 **Melanin_QTL_Analysis_Fig1.ipynb**
-- Ploting, analysis, and QTL mapping of melanization phenotypes
+- Plotting, analysis, and QTL mapping of melanization phenotypes
 
 **Capsule_QTL_analysis_plotting_Fig_2_S2_Fig.ipynb**
-- Analysis of capulse phenotypes and associated QTL analysis
+- Analysis of capsule phenotypes and associated QTL analysis
 
 **Temporal QTL mapping of AUC Figs 3 4 5 S3 S4 S5 S6 S9 Figs.ipynb**
-- Temporal analysis, associated QTL mapping, and visulization of temporal growth phenotypes across temperatures and amphotericin B combinations
+- Temporal analysis, associated QTL mapping, and visualization of temporal growth phenotypes across temperatures and amphotericin B combinations
 
-**SSK1_SSK2_RIC8_visulization_Fig6_S14_Fig.ipynb**
+**SSK1_SSK2_RIC8_visualization_Fig6_S14_Fig.ipynb**
 - Generates gene models of variants and their effects within candidate QTGs
 
 **Cdx_Fludio_Crop_plot_Fig_7_8_S19_Fig.ipynb**
-- Analysis and visulization of segregants fludioxonil phenotypes and H99 ric8 knockouts melanin phenotypes
+- Analysis and visualization of segregant fludioxonil phenotypes and H99 ric8 knockouts melanin phenotypes
 
 **H2O2_QTL_Fig9.ipynb**
-- QTL analysis of hydorgen peroxide growth phenotypes
+- QTL analysis of hydrogen peroxide growth phenotypes
 
 **H2O2_plot_by_QTG_Fig10_S21_Fig.ipynb**
-- Visulization of hydrogen peroxide data as a function of the three QTGs
+- Visualization of hydrogen peroxide data as a function of the three QTGs
 
-## Scripts for supplementaly figure generation
+### Scripts for supplemental figure generation
 
 **Cdx-Allele-Frequency-S1-Fig.ipynb**
 - Analysis of genome wide allele frequencies
@@ -159,10 +161,10 @@ Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
 - Analysis of correlations across phenotypic data (capsule, melanin, thermal tolerance) of the mapping population
 
 **Plot_growth_curves_candidate_QTG_knockouts_S10-13.ipynb**
-- Generates figures showing growth curve data of knockouts at high gemperatures with and without amphotericin B
+- Generates figures showing growth curve data of knockouts at high temperatures with and without amphotericin B
 
 **Median filtering knockouts S15 Fig.ipynb**
-- Filtering and ploting of growth curve data collected on knockouts grown at high temperatures.
+- Filtering and plotting of growth curve data collected on knockouts grown at high temperatures.
 
 **Median filtering XL280 ssk1 knockouts S16 Fig.ipynb**
 - Filtering of growth curve data collected on knockouts in the XL280 strain background
@@ -174,12 +176,12 @@ Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
 - QTL analysis of osmotic growth phenotypes
 
 **Chromosome_12_SSK2_pleiotropic_QTL_S20_Fig.ipynb**
-- Analysis of Amphotericin B and Hydrogen peroxide phenotypes
+- Analysis of amphotericin B and hydrogen peroxide phenotypes
 
-## Scripts for response to reviewers
+### Scripts for response to reviewers
 
 **Effect_of_unisexual_vs_bisexual.ipynb**
 - Explores bias in phenotypes based on type of cross used to generate segregants
 
 **Replicate_analysis.ipynb**
-- Analysis on reproducability of phenotypic data
+- Analysis on reproducibility of phenotypic data
