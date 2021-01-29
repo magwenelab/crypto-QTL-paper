@@ -1,24 +1,24 @@
 # crypto-QTL-paper
-Scripts and analysis of _C. deneoformans_ cross between XL280 X 431, as described in Roth et al. (2021).
+Scripts and analysis of _C. deneoformans_ cross between XL280 X 431, as described in [Roth et al. (2021)](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1009313).
 
 ## Software used in this  study
 
 **Python (anaconda) v 3.7.3**
 - Used for analysis and visualization
 
-**BWA**
+**[BWA](http://bio-bwa.sourceforge.net/)**
 - Used to align FASTQ file to an XL280 reference genome
 
-**Samtools**
+**[Samtools](http://www.htslib.org/)**
 - Used to generate and filter SAM and BAM files
 
-**Bamaddrg**
+**[Bamaddrg](https://github.com/ekg/bamaddrg)**
 - Used to add read group information to BAM
 
-**Freebayes haplotype caller**
+**[Freebayes](https://github.com/freebayes/freebayes) haplotype caller**
 - Used to detect genetic variants segregating in the mapping population
 
-**BLAT**
+**[BLAT](https://genome.ucsc.edu/FAQ/FAQblat.html)**
 - The blast like alignment tool
 
 ## Description of scripts 
@@ -71,12 +71,12 @@ Output: Modified BAM files and BAI index file (per BAM)
 
 Input: Reference genome (xl280genome.fasta), list of sorted BAM files with read groups
 
-Output: a VCF file per chromosome (14).
+Output: a VCF file for each of the 14 chromosomes
 
 ### Parse and filter VCFs, non-synonymous variant detection
 
 **Make chromosome map.ipynb**
-- Generates a dataframe (csv) with genomeic length and cumulative lengths of chromosomes
+- Generates a dataframe (CSV) with genomeic length and cumulative lengths of chromosomes
 
 Input: xl280genome.fasta, the XL280 reference genome
 
@@ -94,7 +94,7 @@ Output: Two dataframes per chromosome with genothype and read depth information
 
 Input: Genotype and allelic depth dataframes per chromosome
 
-Output: Genotype and Allelic read depth dataframes (csv) combined across chromosomes with the names CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
+Output: Genotype and Allelic read depth dataframes (CSV) combined across chromosomes with the names CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
 
 **Filter genetic variants.ipynb**
 - Filters genetic variants based on depth, allele frequency, and callrate.
