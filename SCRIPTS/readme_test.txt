@@ -1,5 +1,5 @@
 # crypto-QTL-paper
-Scripts and analysis of C. deneoformans cross between XL280 X 431, as described in Roth et al.
+Scripts and analysis of _C. deneoformans cross_ between XL280 X 431, as described in Roth et al. (2021).
 
 # Software used in this  study
 
@@ -28,27 +28,28 @@ Scripts and analysis of C. deneoformans cross between XL280 X 431, as described 
 - See data availablity for SRA numbers to raw FASTQ files.
 
 Input: paired FASTQ files
+
 Output: Bash commands for alignment and SAM to BAM generation
     
 **Align-FASTQ-to-sam.sh**
 - List of BWA commands used to align pair-read data.
-- Input: paired FASTQ files
-- Output: SAM files per sample
+Input: paired FASTQ files
+Output: SAM files per sample
 
 **Sort-sam-to-bam.sh** 
 - Via samtools, sorts SAM files and covert them to BAM files.
-- Input: SAM file (per sample)
-- Output: BAM file (per sample)
+Input: SAM file (per sample)
+Output: BAM file (per sample)
 
 **Add-read-group-to-bam.sh**
 - Appends read group information per BAM file.
-- Input: BAM files
-- Output: BAM files with read group information added
+Input: BAM files
+Output: BAM files with read group information added
 
 **Add-bam-index.sh**
 - Adds index to BAM files via samtools.
-- Input: BAM files (with read group inforomation)
-- Output: Modified BAM files and BAI index file (per BAM)
+Input: BAM files (with read group inforomation)
+Output: Modified BAM files and BAI index file (per BAM)
 
 ### Freebayes commands for variant calling
 
@@ -57,30 +58,30 @@ Output: Bash commands for alignment and SAM to BAM generation
 **Run-freebayes3.sh**
 - List of commands used to call variants using the Freebayes Haplotype Caller.
 - Commands are in three batches with each seperated across chromosomes.
-- Input: Reference genome (xl280genome.fasta), list of sorted bam files with read groups
-- Output: a VCF file per chromosome (14).
+Input: Reference genome (xl280genome.fasta), list of sorted bam files with read groups
+Output: a VCF file per chromosome (14).
 
 ## Parse and filter vcfs, non-synonmous variant detection
 
 **Make chormosome map.ipynb**
 - Generates dataframe with genome length and cumulative lengths of chromosomes
-- Input: xl280genome.fasta
+Input: xl280genome.fasta
 - Ouput: XL280-chrom-map.csv
 
 **VCF to dataframes.ipynb**
 - Parses each VCF to a set of dataframes (CSV) used in further processing.
-- Input: VCF per chromosome
-- Output: Two dataframes per chromosome with genothype and read depth information
+Input: VCF per chromosome
+Output: Two dataframes per chromosome with genothype and read depth information
 
 **Aggregate and collect dataframes.ipynb**
 - Combines the dataframes genreated above into two datasets
-- Input: Genetype and allelic depth datarames per chromosome
+Input: Genetype and allelic depth datarames per chromosome
 - Outpus: Genotype and Allelic read depth datframes combined across chromosomes with the names CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
 
 **Filter genetic variants.ipynb**
 - Filters genetic variants based on depth, allele frequency, and callrate.
-- Inputs: CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
-- Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
+Inputs: CDx-ill-gvs.csv.gz and CDx-ill-ads.csv.gz
+Output: Dataframe ofiltered variants named, CDx-ill-SNP-INDEL-df-104.csv
 
 **SNPeffect.ipynb**
 - Predicts the effects of variants on annotated genes
