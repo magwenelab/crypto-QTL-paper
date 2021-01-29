@@ -1,9 +1,7 @@
 # crypto-QTL-paper
 Scripts and analysis of C. deneoformans cross between XL280 X 431, as described in Roth et al.
 
-## ---------------------------------------------------------------------------------------------------------------------------------------------------
-## Software used in this  study
-## ---------------------------------------------------------------------------------------------------------------------------------------------------
+# Software used in this  study
 
 * Python (anaconda) v 3.7.3
 - Used for analysis and visulization
@@ -23,11 +21,11 @@ Scripts and analysis of C. deneoformans cross between XL280 X 431, as described 
 * BLAT 
 - The blast like alignment tool
 
-## ---------------------------------------------------------------------------------------------------------------------------------------------------
-## Aligning paired reads, make sam and bam files
-## ---------------------------------------------------------------------------------------------------------------------------------------------------
+# Description of scripts 
 
-* Generate-samtobam-freebayes-scripts.ipynb
+## Aligning paired reads, make sam and bam files
+
+**Generate-samtobam-freebayes-scripts.ipynb
 - Generates bash commands for aligning FASTQ files.
 - See data availablity for SRA numbers to raw FASTQ files.
 - Input: paired FASTQ files
